@@ -1,0 +1,17 @@
+*.css
+*.svg
+*.png
+*.json
+*.log
+*.lock
+*.md
+*.ico
+*.ttf
+*.xml
+*.txt
+*.html
+*.webmanifest
+*.glb
+next.config.js
+LICENSE
+build
