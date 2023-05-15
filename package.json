@@ -12,14 +12,23 @@
   "dependencies": {
     "@emotion/react": "^11.11.0",
     "@emotion/server": "^11.11.0",
+    "@mantine/carousel": "^6.0.10",
     "@mantine/core": "^6.0.10",
     "@mantine/hooks": "^6.0.10",
     "@mantine/next": "^6.0.10",
+    "@mantine/notifications": "^6.0.10",
+    "@rainbow-me/rainbowkit": "^1.0.0",
+    "@tabler/icons-react": "^2.18.0",
+    "embla-carousel-autoplay": "^8.0.0-rc03",
+    "embla-carousel-react": "^8.0.0-rc03",
     "next": "13.4.2",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "viem": "^0.3.24",
+    "wagmi": "^1.0.4"
   },
   "devDependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^4.1.1",
     "@types/node": "20.1.4",
     "@types/react": "18.2.6",
     "@types/react-dom": "18.2.4",
@@ -35,7 +44,6 @@
     "eslint-plugin-prefer-arrow-functions": "^3.1.4",
     "eslint-plugin-react": "^7.32.2",
     "prettier": "^2.8.8",
-    "prettier-plugin-organize-imports": "^3.2.2",
     "typescript": "5.0.4"
   }
 }

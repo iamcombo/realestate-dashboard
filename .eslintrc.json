@@ -30,6 +30,9 @@
     "arrow-body-style": "off",
     "no-unused-vars": "warn",
     "no-underscore-dangle": "off",
+    "import/prefer-default-export": "off",
+    "import/no-extraneous-dependencies": "off",
+    "react/jsx-props-no-spreading": "off",
     "react/function-component-definition": "off",
     "max-len": ["warn",  100, { "ignoreComments": true, "ignoreUrls": true }],
     "@typescript-eslint/consistent-type-imports": [
@@ -44,7 +47,16 @@
       {
         "classPropertiesAllowed": false,
         "disallowPrototype": false,
-        "returnStyle": "explicit"
+        "returnStyle": "unchanged",
+        "singleReturnOnly": false
+      }
+    ],
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "ts": "never",
+        "tsx": "never"
       }
     ],
     "react/jsx-filename-extension": [
