@@ -11,19 +11,72 @@ import {
   Title,
 } from '@mantine/core';
 import { IconCurrencyDollar } from '@tabler/icons-react';
-import { useSignTypedData } from 'wagmi';
+import { parseEther } from 'viem';
+import { useAccount, useSignTypedData } from 'wagmi';
 
-const Listing = () => {
-  const { data, isLoading, isError, signTypedData } = useSignTypedData({
-    // domain,
-    // types,
-    // primaryType: 'Mail',
-    // value: {
-    //   ...sale,
-    //   lister: '0xdF3e18d64BC6A983f673Ab319CCaE4f1a57C7097',
-    //   nonce: '0',
-    // },
+interface IMintData {
+  lister: string;
+  price: string;
+  uri: string;
+  nonce: string;
+  signature: string;
+}
+
+const domain = {
+  name: 'Test Estate Contract',
+  version: '1.0.0',
+  chainId: 31337,
+  verifyingContract: '0x5FbDB2315678afecb367f032d93F642f64180aa3',
+} as const;
+
+// The named list of all type definitions
+const types = {
+  NFTForSale: [
+    { name: 'lister', type: 'address' },
+    { name: 'price', type: 'uint256' },
+    { name: 'uri', type: 'string' },
+    { name: 'nonce', type: 'uint256' },
+  ],
+} as const;
+
+const Listing = ({ data }: { data: IMintData[] }) => {
+  const nonce = BigInt(data.length + 1);
+  const { address } = useAccount();
+  const { data: signData, signTypedDataAsync } = useSignTypedData({
+    domain,
+    types,
+    primaryType: 'NFTForSale',
+    message: {
+      price: parseEther('1000'),
+      uri: 'https://example.com/0',
+      lister: address as `0x${string}`,
+      nonce,
+    },
   });
+
+  const handleSign = async () => {
+    try {
+      await signTypedDataAsync();
+      const response = await fetch('/api/storage', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          lister: address,
+          price: parseEther('1000').toString(),
+          uri: 'http://example.com',
+          nonce: nonce.toString(),
+          signature: signData,
+        }),
+      });
+      const res = await response.json();
+      console.log(res);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <Grid columns={24} gutterMd={40}>
       <Col md={14}>
@@ -191,7 +244,7 @@ const Listing = () => {
           Video & VR
         </Title>
         <Group position="right">
-          <Button radius={8} px={32}>
+          <Button radius={8} px={32} onClick={handleSign}>
             List Property
           </Button>
         </Group>
@@ -206,3 +259,20 @@ const Listing = () => {
 };
 
 export default Listing;
+
+export const getServerSideProps = async () => {
+  const response = await fetch('http://localhost:3000/api/storage', {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+
+  const data = await response.json();
+
+  return {
+    props: {
+      data,
+    }, // will be passed to the page component as props
+  };
+};

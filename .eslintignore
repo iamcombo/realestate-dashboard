@@ -13,5 +13,6 @@
 *.webmanifest
 *.glb
 next.config.js
+tsconfig.json
 LICENSE
 build
