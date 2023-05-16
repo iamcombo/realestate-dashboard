@@ -30,7 +30,7 @@ const NavbarComp = () => {
   const { classes } = useStyles();
 
   return (
-    <Navbar width={{ base: 300 }} height="100%">
+    <Navbar width={{ base: 280 }} height="100%">
       <Stack spacing={8} mt={24}>
         <Link href="/">
           <Group className={classes.mainLink}>

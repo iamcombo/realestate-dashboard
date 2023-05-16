@@ -1,4 +1,4 @@
-import { Card, Col, Grid, Text, Title } from '@mantine/core';
+import { Card, Center, Col, Grid, Image, Text, Title } from '@mantine/core';
 import Link from 'next/link';
 
 const SelectType = () => {
@@ -12,6 +12,14 @@ const SelectType = () => {
         <Col sm={8}>
           <Link href="/listing/house">
             <Card radius={16} withBorder shadow="md">
+              <Center mb={16}>
+                <Image
+                  alt=""
+                  src="https://realestate-marketplace-tau.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fhouse.65c2e6ce.png&w=64&q=75"
+                  height={64}
+                  width={64}
+                />
+              </Center>
               <Text weight={600} align="center">
                 House
               </Text>
@@ -21,6 +29,14 @@ const SelectType = () => {
         <Col sm={8}>
           <Link href="/listing/apartment">
             <Card radius={16} withBorder shadow="md">
+              <Center mb={16}>
+                <Image
+                  alt=""
+                  src="https://realestate-marketplace-tau.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fapartment.85015ffa.png&w=64&q=75"
+                  height={64}
+                  width={64}
+                />
+              </Center>
               <Text weight={600} align="center">
                 Apartment
               </Text>
@@ -30,6 +46,14 @@ const SelectType = () => {
         <Col sm={8}>
           <Link href="/listing/condo">
             <Card radius={16} withBorder shadow="md">
+              <Center mb={16}>
+                <Image
+                  alt=""
+                  src="https://realestate-marketplace-tau.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fcondo.7cf82f1c.png&w=64&q=75"
+                  height={64}
+                  width={64}
+                />
+              </Center>
               <Text weight={600} align="center">
                 Condo
               </Text>

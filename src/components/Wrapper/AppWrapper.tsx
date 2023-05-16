@@ -1,6 +1,8 @@
 import { MantineProvider } from '@mantine/core';
+import { Notifications } from '@mantine/notifications';
 import { Raleway } from 'next/font/google';
 import type { CSSProperties, ReactNode } from 'react';
+
 import AppLayout from '../Layout/AppLayout';
 import RainbowKitWrapper from './RainbowKitWrapper';
 
@@ -31,6 +33,7 @@ const AppWrapper = ({ children }: { children: ReactNode }) => {
         },
       }}
     >
+      <Notifications />
       <RainbowKitWrapper>
         <AppLayout>{children}</AppLayout>
       </RainbowKitWrapper>

@@ -1,3 +1,4 @@
+import { domain, types } from '@/constants/SIGNTYPEDATA';
 import {
   Button,
   Col,
@@ -10,7 +11,9 @@ import {
   Textarea,
   Title,
 } from '@mantine/core';
+import { notifications } from '@mantine/notifications';
 import { IconCurrencyDollar } from '@tabler/icons-react';
+import { useState } from 'react';
 import { parseEther } from 'viem';
 import { useAccount, useSignTypedData } from 'wagmi';
 
@@ -22,35 +25,24 @@ interface IMintData {
   signature: string;
 }
 
-const domain = {
-  name: 'Test Estate Contract',
-  version: '1.0.0',
-  chainId: 31337,
-  verifyingContract: '0x5FbDB2315678afecb367f032d93F642f64180aa3',
-} as const;
-
-// The named list of all type definitions
-const types = {
-  NFTForSale: [
-    { name: 'lister', type: 'address' },
-    { name: 'price', type: 'uint256' },
-    { name: 'uri', type: 'string' },
-    { name: 'nonce', type: 'uint256' },
-  ],
-} as const;
-
 const Listing = ({ data }: { data: IMintData[] }) => {
-  const nonce = BigInt(data.length + 1);
+  const [price, setPrice] = useState<string>('0');
+  const [nonce, setNonce] = useState<number>(data.length + 1);
+
   const { address } = useAccount();
-  const { data: signData, signTypedDataAsync } = useSignTypedData({
+  const {
+    data: signData,
+    signTypedDataAsync,
+    isSuccess,
+  } = useSignTypedData({
     domain,
     types,
     primaryType: 'NFTForSale',
     message: {
-      price: parseEther('1000'),
+      price: parseEther(price as unknown as `${number}`),
       uri: 'https://example.com/0',
       lister: address as `0x${string}`,
-      nonce,
+      nonce: BigInt(nonce),
     },
   });
 
@@ -59,19 +51,25 @@ const Listing = ({ data }: { data: IMintData[] }) => {
       await signTypedDataAsync();
       const response = await fetch('/api/storage', {
         method: 'POST',
+
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
           lister: address,
-          price: parseEther('1000').toString(),
+          price: parseEther(price as unknown as `${number}`).toString(),
           uri: 'http://example.com',
-          nonce: nonce.toString(),
+          nonce,
           signature: signData,
         }),
       });
       const res = await response.json();
+      notifications.show({
+        title: 'Notification',
+        message: res.message,
+      });
       console.log(res);
+      if (isSuccess) setNonce(nonce + 1);
     } catch (error) {
       console.log(error);
     }
@@ -99,6 +97,8 @@ const Listing = ({ data }: { data: IMintData[] }) => {
             size="md"
             radius={8}
             variant="filled"
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
           />
         </SimpleGrid>
 
