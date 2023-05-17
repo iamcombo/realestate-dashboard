@@ -9,6 +9,7 @@ const AppLayout = ({ children }: { children: ReactNode }) => {
     <AppShell
       navbar={<NavbarComp />}
       header={<HeaderComp />}
+      navbarOffsetBreakpoint="sm"
       styles={(theme) => ({
         main: {
           backgroundColor:

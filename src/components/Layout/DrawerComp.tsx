@@ -1,39 +1,28 @@
-import {
-  Group,
-  Navbar,
-  Stack,
-  Text,
-  ThemeIcon,
-  createStyles,
-} from '@mantine/core';
+import { Drawer, Group, Stack, Text, ThemeIcon, Title } from '@mantine/core';
 import {
   IconHome2,
   IconSquareRoundedPlus,
   IconUser,
 } from '@tabler/icons-react';
+import Image from 'next/image';
 import Link from 'next/link';
 
-const useStyles = createStyles((theme) => ({
-  mainLink: {
-    padding: '8px 24px',
-    '&:hover': {
-      backgroundColor:
-        theme.colorScheme === 'dark'
-          ? theme.colors.dark[6]
-          : theme.colors.gray[0],
-      color: theme.colorScheme === 'dark' ? theme.white : theme.black,
-    },
-  },
-}));
-
-const NavbarComp = () => {
-  const { classes } = useStyles();
-
+const DrawerComp = ({
+  opened,
+  close,
+}: {
+  opened: boolean;
+  close: () => void;
+}) => {
   return (
-    <Navbar width={{ base: 280 }} hiddenBreakpoint="sm" hidden height="100%">
+    <Drawer size={300} opened={opened} onClose={close} withCloseButton={false}>
+      <Group>
+        <Image alt="" src="/logo.png" width={40} height={40} />
+        <Title order={4}>Realestate INC.</Title>
+      </Group>
       <Stack spacing={8} mt={24}>
         <Link href="/">
-          <Group className={classes.mainLink}>
+          <Group my={8}>
             <ThemeIcon variant="light" size={40} radius={8}>
               <IconHome2 />
             </ThemeIcon>
@@ -41,7 +30,7 @@ const NavbarComp = () => {
           </Group>
         </Link>
         <Link href="/listing">
-          <Group className={classes.mainLink}>
+          <Group my={8}>
             <ThemeIcon variant="light" size={40} radius={8}>
               <IconSquareRoundedPlus />
             </ThemeIcon>
@@ -49,7 +38,7 @@ const NavbarComp = () => {
           </Group>
         </Link>
         <Link href="/profile">
-          <Group className={classes.mainLink}>
+          <Group my={8}>
             <ThemeIcon variant="light" size={40} radius={8}>
               <IconUser />
             </ThemeIcon>
@@ -57,8 +46,8 @@ const NavbarComp = () => {
           </Group>
         </Link>
       </Stack>
-    </Navbar>
+    </Drawer>
   );
 };
 
-export default NavbarComp;
+export default DrawerComp;

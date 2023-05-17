@@ -2,6 +2,7 @@ import { CONTRACT } from '@/constants/ESTATE_CONTRACT';
 import connectContract from '@/utils/connectContract';
 import {
   Button,
+  Card,
   Col,
   Grid,
   Group,
@@ -10,10 +11,11 @@ import {
   SimpleGrid,
   TextInput,
   Textarea,
+  ThemeIcon,
   Title,
 } from '@mantine/core';
 import { notifications } from '@mantine/notifications';
-import { IconCurrencyDollar } from '@tabler/icons-react';
+import { IconCurrencyDollar, IconPhotoUp } from '@tabler/icons-react';
 import { ethers } from 'ethers';
 import { useState } from 'react';
 import { useAccount } from 'wagmi';
@@ -283,11 +285,27 @@ const Listing = ({ data }: { data: IMintData[] }) => {
         <Title order={4} mt={24} mb={8}>
           Image
         </Title>
+        <Card radius={8} withBorder>
+          <Group position="center">
+            <ThemeIcon size={40} radius={8} variant="light">
+              <IconPhotoUp />
+            </ThemeIcon>
+            <Title order={5}>Upload Images</Title>
+          </Group>
+        </Card>
         <Title order={4} mt={24} mb={8}>
           Video & VR
         </Title>
+        <Card radius={8} withBorder>
+          <Group position="center">
+            <ThemeIcon size={40} radius={8} variant="light">
+              <IconPhotoUp />
+            </ThemeIcon>
+            <Title order={5}>Upload Video & VR</Title>
+          </Group>
+        </Card>
         <Group position="right">
-          <Button radius={8} px={32} onClick={handleSign}>
+          <Button radius={8} mt={24} px={32} onClick={handleSign}>
             List Property
           </Button>
         </Group>

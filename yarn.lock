@@ -821,12 +821,12 @@
     react-remove-scroll "^2.5.5"
     react-textarea-autosize "8.3.4"
 
-"@mantine/dropzone@^6.0.10":
-  version "6.0.10"
-  resolved "https://registry.yarnpkg.com/@mantine/dropzone/-/dropzone-6.0.10.tgz#c8202b6faf54761fd93f8e01e76f5dfa45153307"
-  integrity sha512-GJW3aDIYaPz40/mjohqxvDaXp459ewPyIIlsb+bXGZbLNykG55+Fp40MKjE90mu3/VyP4zYuW5U32j1BOGb4VQ==
+"@mantine/dropzone@^6.0.11":
+  version "6.0.11"
+  resolved "https://registry.yarnpkg.com/@mantine/dropzone/-/dropzone-6.0.11.tgz#0309bee32d4cfeed919806cf1d95babe7e561a5a"
+  integrity sha512-FJIbvQkcGQGhUxPyPqg8tkMfqeZJwncguT9iFWkhEaDG3gVrvO65BDxHCV3+kMC8t/bvi/J0sizQiqYCAPgfGQ==
   dependencies:
-    "@mantine/utils" "6.0.10"
+    "@mantine/utils" "6.0.11"
     react-dropzone "14.2.3"
 
 "@mantine/hooks@^6.0.10":
@@ -870,6 +870,11 @@
   version "6.0.10"
   resolved "https://registry.yarnpkg.com/@mantine/utils/-/utils-6.0.10.tgz#a7e99d4d7368912696f40fe56e444ef4f5befeae"
   integrity sha512-Lo4VUn3+/kqhdjSoPzUFbxXEjMxj5vS4pqRjKRGtJsTwHiMFNcm8u4cIESzMBAEsoaBrI1dGE4WttwOJhjUaSw==
+
+"@mantine/utils@6.0.11":
+  version "6.0.11"
+  resolved "https://registry.yarnpkg.com/@mantine/utils/-/utils-6.0.11.tgz#03237be9bda3f671c7f9043a23d058d4e64cb72f"
+  integrity sha512-ijkEAaKEhZCw7HSWsGMQZsvfmQKmJXmPoQ1LeEwcH3vjZalPk9pQjSPPfUdTeX9ZAv095XWmfVMiNV8+xvM0OQ==
 
 "@metamask/eth-sig-util@^5.1.0":
   version "5.1.0"

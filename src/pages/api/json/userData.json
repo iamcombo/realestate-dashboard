@@ -19,5 +19,12 @@
     "uri": "https://example.com",
     "nonce": 3,
     "signature": "0x45d435f3e992ba824417243b80a84fefec1beb72a17c8425c4e2be12ef5983ba19db65307b9f33ab5781930b6516adde55af094d2fba9a531cbcbb67cd4b09751b"
+  },
+  {
+    "lister": "0xdF3e18d64BC6A983f673Ab319CCaE4f1a57C7097",
+    "price": "5",
+    "uri": "https://example.com",
+    "nonce": 4,
+    "signature": "0xe0cebff03a1ff435d811973136c5756ced1230c91178fe49f1bbbca5d0c68bc526e48dfc765f8611b17013029285ddb9bdf3b88b2a8d266e730025e621cc92031c"
   }
 ]
