@@ -1,1 +1,23 @@
-[{"lister":"0xdF3e18d64BC6A983f673Ab319CCaE4f1a57C7097","price":"22000000000000000000","uri":"http://example.com","nonce":1},{"lister":"0xdF3e18d64BC6A983f673Ab319CCaE4f1a57C7097","price":"22000000000000000000","uri":"http://example.com","nonce":1,"signature":"0xd27f70a4c902d239d233840ca306284450e16210b052e2237c10b3eb265bb72545dbcf733f38d0050797676887bf6545d4223f4e25a86a22e03979b2c740814d1b"},{"lister":"0xdF3e18d64BC6A983f673Ab319CCaE4f1a57C7097","price":"0","uri":"http://example.com","nonce":1},{"lister":"0xdF3e18d64BC6A983f673Ab319CCaE4f1a57C7097","price":"0","uri":"http://example.com","nonce":4},{"lister":"0xdF3e18d64BC6A983f673Ab319CCaE4f1a57C7097","price":"0","uri":"http://example.com","nonce":5},{"lister":"0xdF3e18d64BC6A983f673Ab319CCaE4f1a57C7097","price":"0","uri":"http://example.com","nonce":6},{"lister":"0xdF3e18d64BC6A983f673Ab319CCaE4f1a57C7097","price":"0","uri":"http://example.com","nonce":7},{"lister":"0xdF3e18d64BC6A983f673Ab319CCaE4f1a57C7097","price":"0","uri":"http://example.com","nonce":8},{"lister":"0xdF3e18d64BC6A983f673Ab319CCaE4f1a57C7097","price":"0","uri":"http://example.com","nonce":8,"signature":"0x8386517807aba4c2254d1793840a9ea7caee9b7fd7f3ec074c669ec356b97d997eb07b3db0a869fecf4b86e483045c6d92f7d68be1633f283675032e50a5a8af1c"}]
+[
+  {
+    "lister": "0xdF3e18d64BC6A983f673Ab319CCaE4f1a57C7097",
+    "price": "5",
+    "uri": "https://example.com",
+    "nonce": 1,
+    "signature": "0x45315448aacb2adfc7d92f55a9cfad18127a0217b36ebfd651f0fedeb9ad82b100691ca3673a38e5928a94f2945bb6e093e443f96a4e84e23b9bab62ede10be51c"
+  },
+  {
+    "lister": "0xdF3e18d64BC6A983f673Ab319CCaE4f1a57C7097",
+    "price": "0",
+    "uri": "https://example.com",
+    "nonce": 2,
+    "signature": "0x84cff35f2e5b5ed5841534d75c9d5a7cd2a9d196b3acc6fe9276eb8100ddaffd2049713ad2676bd616d85fe87ed9f072d7df5bc2d770d7f13a1ac5caaafa24a11b"
+  },
+  {
+    "lister": "0xdF3e18d64BC6A983f673Ab319CCaE4f1a57C7097",
+    "price": "1",
+    "uri": "https://example.com",
+    "nonce": 3,
+    "signature": "0x45d435f3e992ba824417243b80a84fefec1beb72a17c8425c4e2be12ef5983ba19db65307b9f33ab5781930b6516adde55af094d2fba9a531cbcbb67cd4b09751b"
+  }
+]

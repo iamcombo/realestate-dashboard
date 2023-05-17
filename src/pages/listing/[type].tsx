@@ -1,4 +1,5 @@
-import { domain, types } from '@/constants/SIGNTYPEDATA';
+import { CONTRACT } from '@/constants/ESTATE_CONTRACT';
+import connectContract from '@/utils/connectContract';
 import {
   Button,
   Col,
@@ -13,9 +14,9 @@ import {
 } from '@mantine/core';
 import { notifications } from '@mantine/notifications';
 import { IconCurrencyDollar } from '@tabler/icons-react';
+import { ethers } from 'ethers';
 import { useState } from 'react';
-import { parseEther } from 'viem';
-import { useAccount, useSignTypedData } from 'wagmi';
+import { useAccount } from 'wagmi';
 
 interface IMintData {
   lister: string;
@@ -30,46 +31,88 @@ const Listing = ({ data }: { data: IMintData[] }) => {
   const [nonce, setNonce] = useState<number>(data.length + 1);
 
   const { address } = useAccount();
-  const {
-    data: signData,
-    signTypedDataAsync,
-    isSuccess,
-  } = useSignTypedData({
-    domain,
-    types,
-    primaryType: 'NFTForSale',
-    message: {
-      price: parseEther(price as unknown as `${number}`),
-      uri: 'https://example.com/0',
-      lister: address as `0x${string}`,
-      nonce: BigInt(nonce),
-    },
-  });
+  // const {
+  //   data: signData,
+  //   signTypedDataAsync,
+  //   isSuccess,
+  // } = useSignTypedData({
+  //   domain,
+  //   types,
+  //   value: {
+  //     price: parseEther(price as unknown as `${number}`),
+  //     uri: 'https://example.com/0',
+  //     lister: address as `0x${string}`,
+  //     nonce: BigInt(nonce),
+  //   },
+  // } as any);
+
+  // const rs = walletClient.signTypedData({
+  //   domain,
+  //   types,
+  //   message: {
+  //     price: parseEther(price as unknown as `${number}`),
+  //     uri: 'https://example.com/0',
+  //     lister: address as `0x${string}`,
+  //     nonce: BigInt(nonce),
+  //   },
+  //   account: address as `0x${string}`,
+  //   primaryType: 'NFTForSale',
+  // });
+  const value = {
+    price,
+    uri: 'https://example.com',
+    lister: address,
+    nonce,
+  };
 
   const handleSign = async () => {
     try {
-      await signTypedDataAsync();
+      const { ethereum } = window;
+      const Provider = new ethers.providers.Web3Provider(ethereum as object);
+      const signer = Provider.getSigner();
+
+      const { Contract } = connectContract(CONTRACT.address, CONTRACT.ABI);
+      if (!Contract) return;
+      const hash = await Contract._hashNFTSale(
+        address,
+        value.price,
+        value.uri,
+        nonce
+      );
+      const sig = await signer.signMessage(ethers.utils.arrayify(hash));
+
+      // { ...sale, lister: this.accounts[1].address, nonce }
+      // const signData = await signer._signTypedData(domain, types, value);
+      // console.log(signData);
+
+      // const isValid = await ethers.utils.verifyTypedData(
+      //   domain,
+      //   types,
+      //   value,
+      //   signData
+      // );
+      // console.log(isValid);
+
       const response = await fetch('/api/storage', {
         method: 'POST',
-
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
           lister: address,
-          price: parseEther(price as unknown as `${number}`).toString(),
-          uri: 'http://example.com',
+          price: value.price,
+          uri: value.uri,
           nonce,
-          signature: signData,
+          signature: sig,
         }),
       });
       const res = await response.json();
       notifications.show({
         title: 'Notification',
         message: res.message,
+        color: 'green',
       });
-      console.log(res);
-      if (isSuccess) setNonce(nonce + 1);
+      setNonce(nonce + 1);
     } catch (error) {
       console.log(error);
     }

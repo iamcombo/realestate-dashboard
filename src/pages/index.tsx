@@ -1,3 +1,4 @@
+import { Card, Col, Grid, Skeleton, Title } from '@mantine/core';
 import Head from 'next/head';
 
 const Home = () => {
@@ -9,7 +10,46 @@ const Home = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>HI</main>
+      <main>
+        <Title order={3}>Dashboard</Title>
+        <Grid columns={24} mt={16}>
+          <Col md={8}>
+            <Skeleton visible radius={16}>
+              <Card h={140} radius={24}>
+                No Data
+              </Card>
+            </Skeleton>
+          </Col>
+          <Col md={8}>
+            <Skeleton visible radius={16}>
+              <Card h={140} radius={24}>
+                No Data
+              </Card>
+            </Skeleton>
+          </Col>
+          <Col md={8}>
+            <Skeleton visible radius={16}>
+              <Card h={140} radius={24}>
+                No Data
+              </Card>
+            </Skeleton>
+          </Col>
+          <Col md={12}>
+            <Skeleton visible radius={16}>
+              <Card h={140} radius={24}>
+                No Data
+              </Card>
+            </Skeleton>
+          </Col>
+          <Col md={12}>
+            <Skeleton visible radius={16}>
+              <Card h={140} radius={24}>
+                No Data
+              </Card>
+            </Skeleton>
+          </Col>
+        </Grid>
+      </main>
     </>
   );
 };
