@@ -1,5 +1,12 @@
-import { Drawer, Group, Stack, Text, ThemeIcon, Title } from '@mantine/core';
-import { ConnectButton } from '@rainbow-me/rainbowkit';
+import {
+  Divider,
+  Drawer,
+  Group,
+  Stack,
+  Text,
+  ThemeIcon,
+  Title,
+} from '@mantine/core';
 import {
   IconHome2,
   IconSquareRoundedPlus,
@@ -7,6 +14,8 @@ import {
 } from '@tabler/icons-react';
 import Image from 'next/image';
 import Link from 'next/link';
+
+import CustomConnectButton from '../CustomConnectButton';
 
 const DrawerComp = ({
   opened,
@@ -16,7 +25,7 @@ const DrawerComp = ({
   close: () => void;
 }) => {
   return (
-    <Drawer size={300} opened={opened} onClose={close} withCloseButton={false}>
+    <Drawer size={280} opened={opened} onClose={close} withCloseButton={false}>
       <Group>
         <Image alt="" src="/logo.png" width={40} height={40} />
         <Title order={4}>Realestate INC.</Title>
@@ -46,8 +55,9 @@ const DrawerComp = ({
             <Text fw={500}>Profile</Text>
           </Group>
         </Link>
+        <Divider my={8} label="wallet" />
         <Group>
-          <ConnectButton />
+          <CustomConnectButton />
         </Group>
       </Stack>
     </Drawer>
