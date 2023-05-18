@@ -1,4 +1,5 @@
 import { Drawer, Group, Stack, Text, ThemeIcon, Title } from '@mantine/core';
+import { ConnectButton } from '@rainbow-me/rainbowkit';
 import {
   IconHome2,
   IconSquareRoundedPlus,
@@ -45,6 +46,9 @@ const DrawerComp = ({
             <Text fw={500}>Profile</Text>
           </Group>
         </Link>
+        <Group>
+          <ConnectButton />
+        </Group>
       </Stack>
     </Drawer>
   );

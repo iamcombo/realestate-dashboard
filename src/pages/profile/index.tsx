@@ -1,4 +1,3 @@
-import { CardFeature } from '@/components/Card';
 import {
   Avatar,
   Button,
@@ -11,6 +10,8 @@ import {
   Text,
 } from '@mantine/core';
 import { IconMapPinFilled } from '@tabler/icons-react';
+
+import { CardFeature } from '@/components/Card';
 
 const Profile = () => {
   return (

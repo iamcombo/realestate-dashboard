@@ -1,5 +1,6 @@
 import { MantineProvider } from '@mantine/core';
 import { Notifications } from '@mantine/notifications';
+import '@rainbow-me/rainbowkit/styles.css';
 import { Raleway } from 'next/font/google';
 import type { CSSProperties, ReactNode } from 'react';
 

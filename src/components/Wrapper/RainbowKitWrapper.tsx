@@ -1,5 +1,4 @@
 import { RainbowKitProvider, getDefaultWallets } from '@rainbow-me/rainbowkit';
-import '@rainbow-me/rainbowkit/styles.css';
 import type { ReactNode } from 'react';
 import type { Chain } from 'viem';
 import { WagmiConfig, configureChains, createConfig } from 'wagmi';
