@@ -26,5 +26,19 @@
     "uri": "https://example.com",
     "nonce": 4,
     "signature": "0xe0cebff03a1ff435d811973136c5756ced1230c91178fe49f1bbbca5d0c68bc526e48dfc765f8611b17013029285ddb9bdf3b88b2a8d266e730025e621cc92031c"
+  },
+  {
+    "lister": "0xdF3e18d64BC6A983f673Ab319CCaE4f1a57C7097",
+    "price": "0",
+    "uri": "https://example.com",
+    "nonce": 5,
+    "signature": "0xf31625df015f02ce9f74ec005b50ff44d0399fc54f298ace2e83981044ff2cb60588504655e015ab20f608ac2bcd81465cc65b155a96647fa267e8a5d03b107f1b"
+  },
+  {
+    "lister": "0xdF3e18d64BC6A983f673Ab319CCaE4f1a57C7097",
+    "price": "0",
+    "uri": "https://example.com",
+    "nonce": 6,
+    "signature": "0x2bff5ae0c55b98a769d611cc66b01e3d696512d85796d967061fc573cedc0c8e16acd4c458c64e5c61d93da54eed218d0d00bd0a98151dfe74ccd5c0a92da1641b"
   }
 ]

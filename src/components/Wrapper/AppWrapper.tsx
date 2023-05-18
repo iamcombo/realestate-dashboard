@@ -33,7 +33,7 @@ const AppWrapper = ({ children }: { children: ReactNode }) => {
         },
       }}
     >
-      <Notifications />
+      <Notifications position="top-right" />
       <RainbowKitWrapper>
         <AppLayout>{children}</AppLayout>
       </RainbowKitWrapper>

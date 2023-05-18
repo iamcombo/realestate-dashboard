@@ -19,7 +19,7 @@ const HeaderComp = () => {
 
   return (
     <Header height={60} p="xs">
-      <Container size={1800}>
+      <Container size={1900}>
         <Flex justify="space-between">
           <Link href="/">
             <Group>
