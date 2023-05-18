@@ -22,7 +22,7 @@ const DrawerComp = ({
       </Group>
       <Stack spacing={8} mt={24}>
         <Link href="/">
-          <Group my={8}>
+          <Group my={8} onClick={close}>
             <ThemeIcon variant="light" size={40} radius={8}>
               <IconHome2 />
             </ThemeIcon>
@@ -30,7 +30,7 @@ const DrawerComp = ({
           </Group>
         </Link>
         <Link href="/listing">
-          <Group my={8}>
+          <Group my={8} onClick={close}>
             <ThemeIcon variant="light" size={40} radius={8}>
               <IconSquareRoundedPlus />
             </ThemeIcon>
@@ -38,7 +38,7 @@ const DrawerComp = ({
           </Group>
         </Link>
         <Link href="/profile">
-          <Group my={8}>
+          <Group my={8} onClick={close}>
             <ThemeIcon variant="light" size={40} radius={8}>
               <IconUser />
             </ThemeIcon>
